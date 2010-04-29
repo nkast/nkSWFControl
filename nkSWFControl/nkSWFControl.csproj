@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9AAB4FA3-2859-4C1B-905A-DC87BCCC62C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>nkSWFControl</RootNamespace>
+    <AssemblyName>nkSWFControl</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Nonshipping>true</Nonshipping>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Flashvar.cs" />
+    <Compile Include="FlashvarsCollectionEditor.cs" />
+    <Compile Include="Renderers\IRenderer.cs" />
+    <Compile Include="PublishingMethod.cs" />
+    <Compile Include="Renderers\RendererBase.cs" />
+    <Compile Include="Renderers\RendererDesignMode.cs" />
+    <Compile Include="Renderers\RendererNestedEmbed.cs" />
+    <Compile Include="Renderers\RendererNestedObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Renderers\RendererSWFObject2_1_Dynamic.cs" />
+    <Compile Include="Renderers\RendererSWFObject2_1_Static.cs" />
+    <Compile Include="Renderers\RendererSWFObject2_2_Dynamic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Renderers\RendererSWFObject2_2_Static.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SWFControl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SWFControl.Properties.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SWFObject2_2\expressInstall.swf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SWFObject2_1\expressInstall.swf" />
+    <EmbeddedResource Include="SWFObject2_1\swfobject.js" />
+    <EmbeddedResource Include="SWFObject2_2\swfobject.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FlashVars\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
