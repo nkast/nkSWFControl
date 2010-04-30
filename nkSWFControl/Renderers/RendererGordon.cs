@@ -29,9 +29,9 @@ using System.Web.UI;
 
 namespace nkSWFControl.Renderers
 {
-    class RendererSWFObject2_1_Dynamic : RendererBase
+    class RendererGordon : RendererBase
     {
-        internal RendererSWFObject2_1_Dynamic(SWFControl ctrl): base(ctrl) 
+        internal RendererGordon(SWFControl ctrl) : base(ctrl) 
         {
         }
 
@@ -52,16 +52,13 @@ namespace nkSWFControl.Renderers
             cs.RegisterClientScriptResource(rType, "nkSWFObject.Gordon.gordon.js");
 
             //load script
-            object[] args = {
-                    ctrl.Movie, 
+            object[] args = {               
                     ctrl.UniqueID,
                     ctrl.Width.Value.ToString(), 
-                    ctrl.Height.Value.ToString(),
-                    "9.0.0",
-                    cs.GetWebResourceUrl(rType, "expressInstall.swf")
+                    ctrl.Height.Value.ToString()
             };
             string script = "";
-            script += "\n\tvar params = { \n\t };";
+            script += String.Format("\n\tvar params = { \n\t id:{0}, width:{1}, height:{2} };", args);
             script += String.Format("\n\t new Gordon.Movie('{0}', params );", ctrl.Movie );
             cs.RegisterStartupScript(rType, this.ToString(), script, true);
 

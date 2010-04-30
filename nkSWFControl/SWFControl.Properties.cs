@@ -63,12 +63,12 @@ namespace nkSWFControl
         {
             get
             {
-                String s = (String)ViewState["Movie"];
+                String s = (String)ViewState["Version"];
                 return ((s != null) ? s : "default.swf");
             }
             set
             {
-                ViewState["Movie"] = value;
+                ViewState["Version"] = value;
             }
         }
 
