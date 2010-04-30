@@ -51,6 +51,7 @@
     <Compile Include="PublishingMethod.cs" />
     <Compile Include="Renderers\RendererBase.cs" />
     <Compile Include="Renderers\RendererDesignMode.cs" />
+    <Compile Include="Renderers\RendererGordon.cs" />
     <Compile Include="Renderers\RendererNestedEmbed.cs" />
     <Compile Include="Renderers\RendererNestedObject.cs">
       <SubType>Code</SubType>
@@ -77,6 +78,9 @@
     <EmbeddedResource Include="SWFObject2_1\expressInstall.swf" />
     <EmbeddedResource Include="SWFObject2_1\swfobject.js" />
     <EmbeddedResource Include="SWFObject2_2\swfobject.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gordon\gordon.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FlashVars\" />
