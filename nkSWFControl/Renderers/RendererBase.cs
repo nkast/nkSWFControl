@@ -44,7 +44,7 @@ namespace nkSWFControl.Renderers
             return param;
         }
 
-        private void CreateFlashvars(WebControl control)
+        protected void CreateFlashvars(WebControl control)
         {
             if (ctrl.Flashvars != null && ctrl.Flashvars.Count > 0)
                 CreateParam(control, "flashvars", ctrl.GetFlashVars());
