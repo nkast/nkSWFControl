@@ -35,7 +35,7 @@ namespace nkSWFControl
         [Bindable(true)]
         [Category("Properties")]
         [Description("SWF filename")]
-        [DefaultValue("10.0.")]
+        [DefaultValue("10.0.45")]
         [Localizable(true)]
         public String Version
         {
@@ -87,7 +87,7 @@ namespace nkSWFControl
             }
        }
         
-       List<Flashvar> _flashvars; 
+       List<Flashvar> _flashvars;
 
        [Bindable(true)]
        [Category("Properties")]

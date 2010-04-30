@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web.UI;
 
-[assembly: WebResourceAttribute("nkSWFObject.SWFObject2_1.swfobject.js", "application/x-javascript")]
-[assembly: WebResourceAttribute("nkSWFObject.SWFObject2_1.expressInstall.swf", "application/x-shockwave-flash")]
+[assembly: WebResourceAttribute("nkSWFObject.Gordon.gordon.js", "application/x-javascript")]
 
 namespace nkSWFControl.Renderers
 {
@@ -18,7 +17,7 @@ namespace nkSWFControl.Renderers
 
         public override void CreateChildControls()
         {
-            CreateAlternativeContent(ctrl);            
+            CreateAlternativeContent(ctrl);
 
             return;
         }
@@ -28,8 +27,7 @@ namespace nkSWFControl.Renderers
             ClientScriptManager cs = ctrl.Page.ClientScript;
             Type rType = this.GetType();
 
-            cs.RegisterClientScriptResource(rType, "nkSWFObject.SWFObject2_1.swfobject.js");
-            //cs.RegisterClientScriptResource(rType, "nkSWFObject.SWFObject2_2.expressInstall.swf");
+            cs.RegisterClientScriptResource(rType, "nkSWFObject.Gordon.gordon.js");
 
             //load script
             object[] args = {
@@ -41,8 +39,8 @@ namespace nkSWFControl.Renderers
                     cs.GetWebResourceUrl(rType, "expressInstall.swf")
             };
             string script = "";
-            script += "\n\tvar flashvars = { \n\t};";
-            script += String.Format("\n\tswfobject.embedSWF('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', flashvars );", args);
+            script += "\n\tvar params = { \n\t };";
+            script += String.Format("\n\t new Gordon.Movie('{0}', params );", ctrl.Movie );
             cs.RegisterStartupScript(rType, this.ToString(), script, true);
 
             return;
