@@ -64,7 +64,7 @@ namespace nkSWFControl
             get
             {
                 String s = (String)ViewState["Version"];
-                return ((s != null) ? s : "default.swf");
+                return ((s != null) ? s : "10.0.45");
             }
             set
             {
@@ -91,6 +91,24 @@ namespace nkSWFControl
             }
         }
 
+        [Bindable(true)]
+        [Category("Behavior")]
+        [DefaultValue(PublishingMethod.NestedObject)]
+        [Localizable(true)]
+        [Description("Publishing Method")]
+        public WindowMode WindowMode
+        {
+            get
+            {
+                if (ViewState["WindowMode"] == null)
+                    return WindowMode.Opaque;
+                return (WindowMode)ViewState["WindowMode"];
+            }
+            set
+            {
+                ViewState["WindowMode"] = value;
+            }
+        }
       
        [Browsable(false)]
        [PersistenceMode(PersistenceMode.InnerProperty)]

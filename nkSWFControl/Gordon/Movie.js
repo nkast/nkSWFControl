@@ -5,13 +5,14 @@
  *    Gordon is freely distributable under the terms of the MIT license.
  */
 
-Gordon.require("src/base64");
-Gordon.require("src/Color");
-Gordon.require("src/Cxform");
-Gordon.require("src/Matrix");
-Gordon.require("src/Stream");
+Gordon.require("<%= WebResource("nkSWFControl.Gordon.base64.js") %>");
+Gordon.require("<%= WebResource("nkSWFControl.Gordon.color.js")  %>");
+Gordon.require("<%= WebResource("nkSWFControl.Gordon.Cxform.js") %>");
+Gordon.require("<%= WebResource("nkSWFControl.Gordon.matrix.js") %>");
+Gordon.require("<%= WebResource("nkSWFControl.Gordon.stream.js") %>");
 
-(function(){
+(function()
+{
 	var _g = Gordon;
 	var _m = _g.movieStates;
 	var _t2p = _g.twips2px;
@@ -54,8 +55,9 @@ Gordon.require("src/Stream");
 			t.height = frameHeight;
 		}
 		t.currentFrame = 0;
-		if(!t.renderer){
-			Gordon.require("src/SvgRenderer");
+		if(!t.renderer)
+		{		
+            Gordon.require("<%= WebResource("nkSWFControl.Gordon.SvgRenderer.js") %>");			
 			t.renderer = _g.SvgRenderer;
 		}
 		t._renderer = new this.renderer(t.width, t.height, frameWidth, frameHeight, t.quality, t.scale, t.bgcolor);

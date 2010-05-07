@@ -5,13 +5,15 @@
  *    Gordon is freely distributable under the terms of the MIT license.
  */
 
-Gordon.require("src/inflate");
+Gordon.require("<%= WebResource("nkSWFControl.Gordon.inflate.js") %>");
 
-(function(){
+(function()
+{
 	var _g = Gordon;
 	var _t2p = _g.twips2px;
 
-	_g.Stream = function(url){
+	_g.Stream = function(url)
+	{
 		var xhr = Gordon.xhr("GET", url, false);
 		xhr.overrideMimeType("text/plain; charset=x-user-defined");
 		xhr.send(null);
@@ -24,7 +26,8 @@ Gordon.require("src/inflate");
 		t._bitOffset = 8;
 	};
 	_g.Stream.prototype = {	
-		decompress: function() {
+		decompress: function() 
+		{
 			var t = this;
 			t._offset += 2;
 			var header = t._buffer.substr(0, t._offset);

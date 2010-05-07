@@ -26,8 +26,8 @@ using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-[assembly: WebResourceAttribute("nkSWFObject.SWFObject2_1.swfobject.js", "application/x-javascript")]
-[assembly: WebResourceAttribute("nkSWFObject.SWFObject2_1.expressInstall.swf", "application/x-shockwave-flash")]
+[assembly: WebResourceAttribute("nkSWFControl.SWFObject2_1.swfobject.js", "application/x-javascript")]
+[assembly: WebResourceAttribute("nkSWFControl.SWFObject2_1.expressInstall.swf", "application/x-shockwave-flash")]
 
 namespace nkSWFControl.Renderers
 {
@@ -53,6 +53,8 @@ namespace nkSWFControl.Renderers
             nobj.Controls.Add(new LiteralControl("<!--<![endif]-->\n"));
 
             CreateParam(nobj, "movie", ctrl.Movie);
+            CreateParam(nobj, "wmode", ctrl.WindowMode.ToString());
+
             CreateFlashvars(nobj);
             CreateAlternativeContent(nobj);
 
@@ -65,8 +67,8 @@ namespace nkSWFControl.Renderers
             ClientScriptManager cs = ctrl.Page.ClientScript;
             Type rType = this.GetType();
 
-            cs.RegisterClientScriptResource(rType, "nkSWFObject.SWFObject2_1.swfobject.js");
-            //cs.RegisterClientScriptResource(rType, "nkSWFObject.SWFObject2_1.expressInstall.swf");
+            cs.RegisterClientScriptResource(rType, "nkSWFControl.SWFObject2_1.swfobject.js");
+            //cs.RegisterClientScriptResource(rType, "nkSWFControl.SWFObject2_1.expressInstall.swf");
 
             //load script
             object[] args = {

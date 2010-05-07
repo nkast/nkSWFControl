@@ -5,37 +5,47 @@
  *    Gordon is freely distributable under the terms of the MIT license.
  */
 
-(function(){
+(function()
+{
 	var _g = Gordon = {};
 	var _loadedUrls = {};
 	
 	var scripts = document.getElementsByTagName("script");
 	var i = scripts.length;
-	while(i--){
+	while(i--)
+	{
 		var match = scripts[i].src.match(/(^|.*\/)gordon\.js$/);
 		if(match){ _g.ROOT = match[1]; }
 	}
-	
-	_g.xhr = function(){
+
+	_g.xhr = function()
+	{
 		var request = new XMLHttpRequest();
 		request.open.apply(request, arguments);
 		return request;
 	}
-	
-	_g.require = function(url){
+
+	_g.require = function(url)
+	{
 		if(!url.match(/\.([^\/]*)$/)){ url += ".js"; }
-		if(!_loadedUrls[url]){
-			with(_g.xhr("GET", _g.ROOT + url, false)){
+		if (!_loadedUrls[url])
+		{
+		    with (_g.xhr("GET", url, false))
+			{
 				send(null);
-				if(status == 200){
+				if(status == 200)
+				{
 					eval(responseText);
 					_loadedUrls[url] = true;
 				}
-				else{ throw new Error("Unable to load " + url + " status: " + status); }
+				else
+				{ 
+				    throw new Error("Unable to load " + url + " status: " + status); 
+				}
 			}
 		}
 	}
 })();
 
-Gordon.require("src/_base");
-Gordon.require("src/Movie");
+Gordon.require("<%= WebResource("nkSWFControl.Gordon._base.js") %>");
+Gordon.require("<%= WebResource("nkSWFControl.Gordon.movie.js") %>");

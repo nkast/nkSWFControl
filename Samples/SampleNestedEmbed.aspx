@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SampleSWFObjectDynamicFlashvars.aspx.cs" Inherits="TestWeb.SampleSWFObjectDynamicFlashvars" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SampleNestedEmbed.aspx.cs" Inherits="TestWeb.SampleNestedEmbed" %>
 
-<%@ Register Assembly="nkSWFControl" Namespace="nkSWFControl" TagPrefix="cc1" %>
+<%@ Register assembly="nkSWFControl" namespace="nkSWFControl" tagprefix="cc1" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -11,20 +11,15 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        
-        <cc1:SWFControl ID="SWFControl1" runat="server" Height="60px" PublishingMethod="SWFObject2_2_Dynamic"
-            Width="80px">            
+    
+        <cc1:SWFControl ID="SWFControl1" runat="server" Height="150px" 
+            PublishingMethod="NestedEmbed" Width="300px">
             <AlternativeContentTemplate>
             <div>
 				<h1>Alternative content</h1>
 				<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
 			</div>
             </AlternativeContentTemplate>
-            <Flashvars>            
-                <cc1:Flashvar Name="id" Value="30" />
-                <cc1:Flashvar Name="uid" Value="45" />                
-                <cc1:Flashvar Name="page" Value='<%= Request.QueryString("page").ToString() %>' />
-            </Flashvars>
         </cc1:SWFControl>
         
     </div>

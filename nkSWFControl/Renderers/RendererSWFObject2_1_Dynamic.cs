@@ -25,8 +25,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web.UI;
 
-[assembly: WebResourceAttribute("nkSWFObject.SWFObject2_1.swfobject.js", "application/x-javascript")]
-[assembly: WebResourceAttribute("nkSWFObject.SWFObject2_1.expressInstall.swf", "application/x-shockwave-flash")]
+[assembly: WebResourceAttribute("nkSWFControl.SWFObject2_1.swfobject.js", "application/x-javascript")]
+[assembly: WebResourceAttribute("nkSWFControl.SWFObject2_1.expressInstall.swf", "application/x-shockwave-flash")]
 
 namespace nkSWFControl.Renderers
 {
@@ -40,7 +40,7 @@ namespace nkSWFControl.Renderers
 
         public override void CreateChildControls()
         {
-            CreateAlternativeContent(ctrl);            
+            CreateAlternativeContent(ctrl);
 
             return;
         }
@@ -50,8 +50,8 @@ namespace nkSWFControl.Renderers
             ClientScriptManager cs = ctrl.Page.ClientScript;
             Type rType = this.GetType();
 
-            cs.RegisterClientScriptResource(rType, "nkSWFObject.SWFObject2_1.swfobject.js");
-            //cs.RegisterClientScriptResource(rType, "nkSWFObject.SWFObject2_2.expressInstall.swf");
+            cs.RegisterClientScriptResource(rType, "nkSWFControl.SWFObject2_1.swfobject.js");
+            //cs.RegisterClientScriptResource(rType, "nkSWFControl.SWFObject2_2.expressInstall.swf");
 
             //load script
             object[] args = {
@@ -59,7 +59,7 @@ namespace nkSWFControl.Renderers
                     ctrl.UniqueID,
                     ctrl.Width.Value.ToString(), 
                     ctrl.Height.Value.ToString(),
-                    "9.0.0",
+                    ctrl.Version,
                     cs.GetWebResourceUrl(rType, "expressInstall.swf")
             };
             string script = "";
