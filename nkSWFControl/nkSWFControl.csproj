@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WindowMode.cs" />
     <Compile Include="Flashvar.cs" />
     <Compile Include="FlashvarsCollectionEditor.cs" />
     <Compile Include="Renderers\IRenderer.cs" />
@@ -81,6 +82,17 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Gordon\gordon.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gordon\base64.js" />
+    <EmbeddedResource Include="Gordon\color.js" />
+    <EmbeddedResource Include="Gordon\Cxform.js" />
+    <EmbeddedResource Include="Gordon\inflate.js" />
+    <EmbeddedResource Include="Gordon\matrix.js" />
+    <EmbeddedResource Include="Gordon\movie.js" />
+    <EmbeddedResource Include="Gordon\stream.js" />
+    <EmbeddedResource Include="Gordon\SvgRenderer.js" />
+    <EmbeddedResource Include="Gordon\_base.js" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -50,6 +50,8 @@ namespace nkSWFControl.Renderers
             nobj.Controls.Add(new LiteralControl("<!--<![endif]-->\n"));
 
             CreateParam(nobj, "movie", ctrl.Movie);
+            CreateParam(nobj, "wmode", ctrl.WindowMode.ToString() );
+
             CreateFlashvars(nobj);
 
             CreateAlternativeContent(nobj);
@@ -74,3 +76,5 @@ namespace nkSWFControl.Renderers
         #endregion
     }
 }
+
+

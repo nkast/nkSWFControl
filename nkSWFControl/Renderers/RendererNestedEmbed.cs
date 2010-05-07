@@ -39,6 +39,8 @@ namespace nkSWFControl.Renderers
         public override void CreateChildControls()
         {
             CreateParam("movie", ctrl.Movie);
+            CreateParam("wmode", ctrl.WindowMode.ToString());
+
             CreateFlashvars(ctrl);
 
             WebControl embed = new WebControl(HtmlTextWriterTag.Embed);
@@ -46,7 +48,8 @@ namespace nkSWFControl.Renderers
             embed.Attributes.Add("pluginspage", "http://www.macromedia.com/go/getflashplayer"); 
             embed.Attributes.Add("width", ctrl.Width.Value.ToString());
             embed.Attributes.Add("height", ctrl.Width.Value.ToString());
-            embed.Attributes.Add("src", ctrl.Movie);
+            embed.Attributes.Add("src",   ctrl.Movie);
+            embed.Attributes.Add("wmode", ctrl.WindowMode.ToString());
             //embed.Attributes.Add("quality", "high");
             //embed.Attributes.Add("name", "movie" );
             ctrl.Controls.Add(embed);

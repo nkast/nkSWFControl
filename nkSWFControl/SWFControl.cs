@@ -79,6 +79,9 @@ namespace nkSWFControl
                 case PublishingMethod.SWFObject2_2_Static:
                     _renderer = new RendererSWFObject2_2_Static(this);
                     break;
+                case PublishingMethod.Gordon:
+                    _renderer = new RendererGordon(this);
+                    break;
             }
             return;
         }

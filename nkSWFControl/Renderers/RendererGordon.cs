@@ -24,8 +24,18 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web.UI;
+using System.Reflection;
 
-[assembly: WebResourceAttribute("nkSWFObject.Gordon.gordon.js", "application/x-javascript")]
+[assembly: WebResource("nkSWFControl.Gordon._base.js", "application/x-javascript")]
+[assembly: WebResourceAttribute("nkSWFControl.Gordon.base64.js", "application/x-javascript")]
+[assembly: WebResourceAttribute("nkSWFControl.Gordon.color.js", "application/x-javascript")]
+[assembly: WebResourceAttribute("nkSWFControl.Gordon.Cxform.js", "application/x-javascript")]
+[assembly: WebResourceAttribute("nkSWFControl.Gordon.matrix.js", "application/x-javascript")]
+[assembly: WebResourceAttribute("nkSWFControl.Gordon.stream.js", "application/x-javascript", PerformSubstitution = true)]
+[assembly: WebResourceAttribute("nkSWFControl.Gordon.inflate.js", "application/x-javascript")]
+[assembly: WebResourceAttribute("nkSWFControl.Gordon.SvgRenderer.js", "application/x-javascript")]
+[assembly: WebResource("nkSWFControl.Gordon.movie.js", "application/x-javascript" , PerformSubstitution = true)]
+[assembly: WebResource("nkSWFControl.Gordon.gordon.js", "application/x-javascript", PerformSubstitution = true)]
 
 namespace nkSWFControl.Renderers
 {
@@ -49,7 +59,8 @@ namespace nkSWFControl.Renderers
             ClientScriptManager cs = ctrl.Page.ClientScript;
             Type rType = this.GetType();
 
-            cs.RegisterClientScriptResource(rType, "nkSWFObject.Gordon.gordon.js");
+
+            cs.RegisterClientScriptResource(rType, "nkSWFControl.Gordon.gordon.js");   
 
             //load script
             object[] args = {               
@@ -58,9 +69,10 @@ namespace nkSWFControl.Renderers
                     ctrl.Height.Value.ToString()
             };
             string script = "";
-            script += String.Format("\n\tvar params = { \n\t id:{0}, width:{1}, height:{2} };", args);
-            script += String.Format("\n\t new Gordon.Movie('{0}', params );", ctrl.Movie );
+            script += String.Format("\n\t var params = {{ \n\t\t id:'{0}', width:{1}, height:{2} \n\t}};", args);
+            script += String.Format("\n\t var _{1} = new Gordon.Movie('{0}', params );", ctrl.Movie , ctrl.ID );
             cs.RegisterStartupScript(rType, this.ToString(), script, true);
+            //cs.RegisterClientScriptBlock(rType, this.ToString(), script, true);
 
             return;
         }

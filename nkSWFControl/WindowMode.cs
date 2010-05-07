@@ -24,14 +24,12 @@ using System;
 
 namespace nkSWFControl
 {
-    public enum PublishingMethod
+    public enum WindowMode 
     {
-        NestedObject,
-        NestedEmbed,
-        SWFObject2_1_Static,
-        SWFObject2_1_Dynamic,
-        SWFObject2_2_Static,
-        SWFObject2_2_Dynamic,
-        Gordon
+        Window,
+        Transparent,
+        Opaque,
+        Direct,
+        GPU
     }
 }
