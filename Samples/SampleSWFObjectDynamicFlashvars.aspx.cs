@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using nkSWFControl;
 
 namespace TestWeb
 {
@@ -11,6 +12,7 @@ namespace TestWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SWFControl1.Flashvars.Add(new Flashvar("page","13"));
 
         }
     }

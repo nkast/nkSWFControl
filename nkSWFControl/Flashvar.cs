@@ -66,10 +66,5 @@ namespace nkSWFControl
             set { _value = value;}
         }
 
-
-        internal string GetPair()
-        {
-            return _name + "=" + _value;
-        }
     }
 }
