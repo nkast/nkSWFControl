@@ -63,8 +63,9 @@ namespace nkSWFControl.Renderers
                     cs.GetWebResourceUrl(rType, "expressInstall.swf")
             };
             string script = "";
-            script += "\n\tvar flashvars = { \n\t};";
-            script += String.Format("\n\tswfobject.embedSWF('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', flashvars );", args);
+            script += "\n\t var flashvars = {" + ctrl.GetJFlashVars() + "};";
+            script += "\n\t var params = {};";            
+            script += String.Format("\n\tswfobject.embedSWF('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', flashvars, params );", args);
             cs.RegisterStartupScript(rType, this.ToString(), script, true);
 
             return;

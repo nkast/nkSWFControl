@@ -110,18 +110,44 @@ namespace nkSWFControl
 
         internal string GetFlashVars()
         {
-            string fvs = "";
-
-           
+            StringBuilder builder = new StringBuilder();
+            string delimiter = "";
             foreach (Flashvar fv in Flashvars)
             {
-                fvs += fv.GetPair();
-                fvs += "&";
+                builder.Append(delimiter);
+                builder.Append(fv.Name);
+                builder.Append("=");
+                builder.Append(fv.Value);
+                delimiter = "&";
             }
-            fvs = fvs.Substring(0, fvs.Length - 1);
-           
+            return builder.ToString();
+        }
 
-            return fvs;
+        internal string GetJFlashVars()
+        {
+            StringBuilder builder = new StringBuilder();
+            string delimiter = "";
+            foreach (Flashvar fv in Flashvars)
+            {
+                builder.Append(delimiter);
+                builder.Append(fv.Name);
+                builder.Append(":'");
+                builder.Append(fv.Value);
+                builder.Append("'");
+                delimiter = ",";
+            }
+            return builder.ToString();
+        }
+
+        internal string GetJParams()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append("wmode:\"");
+            builder.Append(WindowMode.ToString());
+            builder.Append("\"");
+            //builder.Append(",");
+            
+            return builder.ToString();
         }
     }
 }

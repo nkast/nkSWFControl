@@ -22,8 +22,8 @@
             </AlternativeContentTemplate>
             <Flashvars>            
                 <cc1:Flashvar Name="id" Value="30" />
-                <cc1:Flashvar Name="uid" Value="45" />                
-                <cc1:Flashvar Name="page" Value='<%= Request.QueryString("page").ToString() %>' />
+                <cc1:Flashvar Name="uid" Value="45" />               
+                
             </Flashvars>
         </cc1:SWFControl>
         
