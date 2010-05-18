@@ -30,6 +30,10 @@ using System.Web.UI.WebControls;
 using System.Security.Permissions;
 using System.Collections;
 using nkSWFControl.Renderers;
+using System.IO;
+using System.Design;
+using System.ComponentModel.Design;
+
 
 namespace nkSWFControl
 {
@@ -40,7 +44,8 @@ namespace nkSWFControl
      ParseChildren(true),
      ToolboxData("<{0}:SWFControl runat=\"server\" PublishingMethod=\"NestedObject\" Width=\"80px\" Height=\"60px\" >\n\t<AlternativeContentTemplate></AlternativeContentTemplate>\n\t</{0}:SWFControl>")
     ]
-    public partial class SWFControl : WebControl, INamingContainer
+    [Designer(typeof(SWFControlDesigner))]
+    public partial class SWFControl : CompositeControl
     {
         IRenderer _renderer;
         private ITemplate _template;    
@@ -148,6 +153,49 @@ namespace nkSWFControl
             //builder.Append(",");
             
             return builder.ToString();
+        }
+
+        internal void Autosize()
+        {
+            string file = Movie;
+            if(File.Exists(file))
+            {
+                Width = 300;
+            }
+
+            IDesignerHost dh = (IDesignerHost)Site.GetService(typeof(IDesignerHost));
+
+            string t = HttpRuntime.AppDomainAppVirtualPath;
+            t = HttpRuntime.AspInstallDirectory;
+
+
+            /*
+            //EnvDTE.DTE _dte = (EnvDTE.DTE)Site.GetService(typeof(EnvDTE.DTE));
+             Array projects = (System.Array)devenv.ActiveSolutionProjects;
+
+     if((projects.Length == 0) || (projects.Length > 1))
+     {
+       html = "Exactly one project must be active";
+     } 
+     else 
+     {
+       // go through the items of the project to find the configuration
+       EnvDTE.Project project = (EnvDTE.Project)(projects.GetValue(0));
+       foreach(EnvDTE.ProjectItem item in project.ProjectItems)
+       {
+         // if it is the configuration, then open it up
+         if(string.Compare(item.Name, "web.config", true) == 0)
+           ...
+       }
+     }
+*/
+            Literal l = new Literal();
+            l.Text = Path.GetFullPath("~/");
+            this.Controls.Add(l);
+
+            Width = 400;
+            Height = 200;
+            return;
         }
     }
 }
