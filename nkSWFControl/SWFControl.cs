@@ -189,9 +189,13 @@ namespace nkSWFControl
        }
      }
 */
+
             Literal l = new Literal();
             l.Text = Path.GetFullPath("~/");
-            this.Controls.Add(l);
+
+            Movie = Path.GetFullPath("~/");
+
+            Controls.Add(l);
 
             Width = 400;
             Height = 200;
