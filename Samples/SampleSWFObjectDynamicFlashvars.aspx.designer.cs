@@ -11,7 +11,8 @@
 namespace TestWeb {
     
     
-    public partial class SampleSWFObjectDynamicFlashvars {
+    public partial class SampleSWFObjectDynamicFlashvars 
+    {
         
         /// <summary>
         /// form1 control.

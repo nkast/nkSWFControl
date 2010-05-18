@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SWFControlDesigner.cs" />
     <Compile Include="WindowMode.cs" />
     <Compile Include="Flashvar.cs" />
     <Compile Include="FlashvarsCollectionEditor.cs" />
