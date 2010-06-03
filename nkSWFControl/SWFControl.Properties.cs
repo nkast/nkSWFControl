@@ -93,6 +93,24 @@ namespace nkSWFControl
         }
 
         [Bindable(true)]
+        [Category("Properties")]
+        [Description("Site absolute path")]
+        [DefaultValue("C:\\inetpub\\wwwroot")]
+        [Localizable(true)]
+        public String SitePath
+        {
+            get
+            {
+                String s = (String)ViewState["SitePath"];
+                return ((s != null) ? s : "C:\\inetpub\\wwwroot");
+            }
+            set
+            {
+                ViewState["SitePath"] = value;
+            }
+        }
+
+        [Bindable(true)]
         [Category("Behavior")]
         [DefaultValue(PublishingMethod.NestedObject)]
         [Localizable(true)]

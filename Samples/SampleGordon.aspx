@@ -12,7 +12,12 @@
     <form id="form1" runat="server">
     <div>
     
-        <cc1:SWFControl ID="SWFControl1" runat="server" PublishingMethod="Gordon" Width="500px" Height="400px" Movie="trip.swf">
+        <cc1:SWFControl ID="SWFControl1" runat="server" 
+            PublishingMethod="Gordon"  
+            SitePath="C:\Projects\nkSWFControl\nkSWFControl\Samples" 
+            Movie="trip.swf"
+            Width="469px" Height="139px"
+        >
         </cc1:SWFControl>
     
     </div>

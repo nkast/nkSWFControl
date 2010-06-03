@@ -13,7 +13,7 @@
     <div>
     
         <cc1:SWFControl ID="SWFControl1" runat="server" Height="60px" PublishingMethod="SWFObject2_2_Dynamic"
-            Width="121px">            
+            Width="121px" SitePath="C:\Projects\nkSWFControl\nkSWFControl\Samples" >            
             <AlternativeContentTemplate>
             <div>
 				<h1>Alternative content</h1>
