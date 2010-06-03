@@ -42,7 +42,7 @@ namespace nkSWFControl.Renderers
             WebControl nobj = new WebControl(HtmlTextWriterTag.Object);
             nobj.Attributes.Add("type", "application/x-shockwave-flash");
             nobj.Attributes.Add("width", ctrl.Width.Value.ToString());
-            nobj.Attributes.Add("height", ctrl.Width.Value.ToString());
+            nobj.Attributes.Add("height", ctrl.Height.Value.ToString());
             nobj.Attributes.Add("data", ctrl.Movie);
             ctrl.Controls.Add(nobj);
             ctrl.Controls.Add(new LiteralControl("\n<!--<![endif]-->\n"));

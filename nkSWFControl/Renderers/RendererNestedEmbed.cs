@@ -47,7 +47,7 @@ namespace nkSWFControl.Renderers
             embed.Attributes.Add("type", "application/x-shockwave-flash");
             embed.Attributes.Add("pluginspage", "http://www.macromedia.com/go/getflashplayer"); 
             embed.Attributes.Add("width", ctrl.Width.Value.ToString());
-            embed.Attributes.Add("height", ctrl.Width.Value.ToString());
+            embed.Attributes.Add("height", ctrl.Height.Value.ToString());
             embed.Attributes.Add("src",   ctrl.Movie);
             embed.Attributes.Add("wmode", ctrl.WindowMode.ToString());
             //embed.Attributes.Add("quality", "high");
