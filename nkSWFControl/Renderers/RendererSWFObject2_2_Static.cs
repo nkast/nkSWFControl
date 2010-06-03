@@ -45,7 +45,7 @@ namespace nkSWFControl.Renderers
             WebControl nobj = new WebControl(HtmlTextWriterTag.Object);
             nobj.Attributes.Add("type", "application/x-shockwave-flash");
             nobj.Attributes.Add("width", ctrl.Width.Value.ToString());
-            nobj.Attributes.Add("height", ctrl.Width.Value.ToString());
+            nobj.Attributes.Add("height", ctrl.Height.Value.ToString());
             nobj.Attributes.Add("data", ctrl.Movie);
             ctrl.Controls.Add(nobj);
             ctrl.Controls.Add(new LiteralControl("\n<!--<![endif]-->\n"));
@@ -95,7 +95,7 @@ namespace nkSWFControl.Renderers
             base.AddAttributes(writer); // base will add ID
             writer.AddAttribute("classid", "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000");
             writer.AddAttribute("width", ctrl.Width.Value.ToString());
-            writer.AddAttribute("height", ctrl.Width.Value.ToString());
+            writer.AddAttribute("height", ctrl.Height.Value.ToString());
         }
 
         #endregion
