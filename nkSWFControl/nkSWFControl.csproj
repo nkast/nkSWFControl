@@ -37,6 +37,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevelopDotNet.Compression, Version=2.0.0.0, Culture=neutral, PublicKeyToken=1d062c4645d82076, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DevelopDotNet\DevelopDotNet.Compression.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Design" />
@@ -46,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SWFControlDesigner.cs" />
+    <Compile Include="SWFFile\SWF\SWFHeader.cs" />
+    <Compile Include="SWFFile\SWF\SWFReader.cs" />
     <Compile Include="WindowMode.cs" />
     <Compile Include="Flashvar.cs" />
     <Compile Include="FlashvarsCollectionEditor.cs" />

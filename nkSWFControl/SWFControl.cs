@@ -33,6 +33,7 @@ using nkSWFControl.Renderers;
 using System.IO;
 using System.Design;
 using System.ComponentModel.Design;
+using SWFFile.SWF;
 
 
 namespace nkSWFControl
@@ -157,48 +158,22 @@ namespace nkSWFControl
 
         internal void Autosize()
         {
-            string file = Movie;
-            if(File.Exists(file))
+            string filename = Movie;
+            string path = SitePath;
+            //string path = Path.GetFullPath("~/");
+            string fullpath = Path.Combine(path, filename);
+            if (!File.Exists(fullpath))
             {
-                Width = 300;
+                return;
             }
 
-            IDesignerHost dh = (IDesignerHost)Site.GetService(typeof(IDesignerHost));
+            SWFFile.SWF.SWFReader swfReader = new SWFReader(fullpath);
+            Width = swfReader.Header.FrameWidth;
+            Height = swfReader.Header.FrameHeight;
+            Movie = "test";
+            
+            
 
-            string t = HttpRuntime.AppDomainAppVirtualPath;
-            t = HttpRuntime.AspInstallDirectory;
-
-
-            /*
-            //EnvDTE.DTE _dte = (EnvDTE.DTE)Site.GetService(typeof(EnvDTE.DTE));
-             Array projects = (System.Array)devenv.ActiveSolutionProjects;
-
-     if((projects.Length == 0) || (projects.Length > 1))
-     {
-       html = "Exactly one project must be active";
-     } 
-     else 
-     {
-       // go through the items of the project to find the configuration
-       EnvDTE.Project project = (EnvDTE.Project)(projects.GetValue(0));
-       foreach(EnvDTE.ProjectItem item in project.ProjectItems)
-       {
-         // if it is the configuration, then open it up
-         if(string.Compare(item.Name, "web.config", true) == 0)
-           ...
-       }
-     }
-*/
-
-            Literal l = new Literal();
-            l.Text = Path.GetFullPath("~/");
-
-            Movie = Path.GetFullPath("~/");
-
-            Controls.Add(l);
-
-            Width = 400;
-            Height = 200;
             return;
         }
     }

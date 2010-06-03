@@ -57,7 +57,14 @@ namespace nkSWFControl
             {
                 // Get a reference to the parent designer's associated control
                 SWFControl ctl = (SWFControl)_parent.Component;
-                ctl.Autosize();               
+                ctl.Autosize();
+                ctl.Attributes["Width"] = ctl.Width.Value.ToString();
+                string ts = ctl.AppRelativeTemplateSourceDirectory;
+                string ts2 = ctl.TemplateSourceDirectory;
+                
+
+
+                return;
             }
         }
     
