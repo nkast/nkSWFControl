@@ -156,25 +156,6 @@ namespace nkSWFControl
             return builder.ToString();
         }
 
-        internal void Autosize()
-        {
-            string filename = Movie;
-            string path = SitePath;
-            //string path = Path.GetFullPath("~/");
-            string fullpath = Path.Combine(path, filename);
-            if (!File.Exists(fullpath))
-            {
-                return;
-            }
-
-            SWFFile.SWF.SWFReader swfReader = new SWFReader(fullpath);
-            Width = swfReader.Header.FrameWidth;
-            Height = swfReader.Header.FrameHeight;
-            Movie = "test";
-            
-            
-
-            return;
-        }
+     
     }
 }
