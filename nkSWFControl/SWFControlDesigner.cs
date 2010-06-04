@@ -4,6 +4,9 @@ using System.Text;
 using System.Web.UI.Design.WebControls;
 using System.ComponentModel.Design;
 using System.ComponentModel;
+using System.Web.UI.Design;
+using System.IO;
+using SWFFile.SWF;
 
 namespace nkSWFControl
 {
@@ -57,12 +60,26 @@ namespace nkSWFControl
             {
                 // Get a reference to the parent designer's associated control
                 SWFControl ctl = (SWFControl)_parent.Component;
-                ctl.Autosize();
-                ctl.Attributes["Width"] = ctl.Width.Value.ToString();
-                string ts = ctl.AppRelativeTemplateSourceDirectory;
-                string ts2 = ctl.TemplateSourceDirectory;
-                
 
+                string filename = ctl.Movie;
+                string path = ctl.SitePath;
+                //string path = Path.GetFullPath("~/");
+                string fullpath = Path.Combine(path, filename);
+                if (!File.Exists(fullpath))
+                {
+                    return;
+                }
+
+                SWFFile.SWF.SWFReader swfReader = new SWFReader(fullpath);
+                ctl.Width = swfReader.Header.FrameWidth;
+                ctl.Height = swfReader.Header.FrameHeight;
+                
+                
+                //update size
+                _parent.Tag.SetAttribute("Width", ctl.Width.ToString());
+                _parent.Tag.SetAttribute("Height", ctl.Height.ToString());
+                                
+                _parent.UpdateDesignTimeHtml();
 
                 return;
             }

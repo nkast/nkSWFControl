@@ -16,7 +16,7 @@
             PublishingMethod="Gordon"  
             SitePath="C:\Projects\nkSWFControl\nkSWFControl\Samples" 
             Movie="trip.swf"
-            Width="469px" Height="139px"
+            Width="162px" Height="162px"
         >
         </cc1:SWFControl>
     
