@@ -95,14 +95,14 @@ namespace nkSWFControl
         [Bindable(true)]
         [Category("Properties")]
         [Description("Site absolute path")]
-        [DefaultValue("C:\\inetpub\\wwwroot")]
+        [DefaultValue("")]
         [Localizable(true)]
         public String SitePath
         {
             get
             {
                 String s = (String)ViewState["SitePath"];
-                return ((s != null) ? s : "C:\\inetpub\\wwwroot");
+                return ((s != null) ? s : "");
             }
             set
             {

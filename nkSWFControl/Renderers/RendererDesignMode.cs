@@ -42,7 +42,7 @@ namespace nkSWFControl.Renderers
 
        public override void CreateChildControls()
        {
-           ctrl.Controls.Add(new LiteralControl( String.Format("<strong>{0}</strong> - '{1}'" ,ctrl.ClientID , ctrl.Movie) ) );            
+           ctrl.Controls.Add(new LiteralControl(String.Format("<strong>{0}</strong> - '{1}'", ctrl.ClientID, ctrl.ResolvedMovie)));            
        }
 
        public override void AddAttributes(System.Web.UI.HtmlTextWriter writer)

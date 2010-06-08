@@ -70,7 +70,7 @@ namespace nkSWFControl.Renderers
             };
             string script = "";
             script += String.Format("\n\t var params = {{ \n\t\t id:'{0}', width:{1}, height:{2} \n\t}};", args);
-            script += String.Format("\n\t var _{1} = new Gordon.Movie('{0}', params );", ctrl.Movie , ctrl.ID );
+            script += String.Format("\n\t var _{1} = new Gordon.Movie('{0}', params );", ctrl.ResolvedMovie, ctrl.ID);
             cs.RegisterStartupScript(rType, this.ToString(), script, true);
             //cs.RegisterClientScriptBlock(rType, this.ToString(), script, true);
 
