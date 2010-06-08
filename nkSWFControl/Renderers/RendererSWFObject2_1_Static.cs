@@ -46,13 +46,13 @@ namespace nkSWFControl.Renderers
             nobj.Attributes.Add("type", "application/x-shockwave-flash");
             nobj.Attributes.Add("width", ctrl.Width.Value.ToString());
             nobj.Attributes.Add("height", ctrl.Height.Value.ToString());
-            nobj.Attributes.Add("data", ctrl.Movie);
+            nobj.Attributes.Add("data", ctrl.ResolvedMovie);
             ctrl.Controls.Add(nobj);
             ctrl.Controls.Add(new LiteralControl("\n<!--<![endif]-->\n"));
 
             nobj.Controls.Add(new LiteralControl("<!--<![endif]-->\n"));
 
-            CreateParam(nobj, "movie", ctrl.Movie);
+            CreateParam(nobj, "movie", ctrl.ResolvedMovie);
             CreateParam(nobj, "wmode", ctrl.WindowMode.ToString());
 
             CreateFlashvars(nobj);
@@ -72,7 +72,7 @@ namespace nkSWFControl.Renderers
 
             //load script
             object[] args = {
-                    ctrl.Movie,
+                    ctrl.ResolvedMovie,
                     ctrl.UniqueID,
                     ctrl.Width.Value.ToString(),
                     ctrl.Height.Value.ToString(),

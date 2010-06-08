@@ -55,7 +55,7 @@ namespace nkSWFControl.Renderers
 
             //load script
             object[] args = {
-                    ctrl.Movie, 
+                    ctrl.ResolvedMovie, 
                     ctrl.UniqueID,
                     ctrl.Width.Value.ToString(), 
                     ctrl.Height.Value.ToString(),

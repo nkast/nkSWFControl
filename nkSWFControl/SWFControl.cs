@@ -43,7 +43,7 @@ namespace nkSWFControl
      AspNetHostingPermission(SecurityAction.InheritanceDemand,Level = AspNetHostingPermissionLevel.Minimal),
      //DefaultProperty(""),     
      ParseChildren(true),
-     ToolboxData("<{0}:SWFControl runat=\"server\" PublishingMethod=\"NestedObject\" Width=\"80px\" Height=\"60px\" >\n\t<AlternativeContentTemplate></AlternativeContentTemplate>\n\t</{0}:SWFControl>")
+     ToolboxData("<{0}:SWFControl runat=\"server\" PublishingMethod=\"NestedObject\" Width=\"300px\" Height=\"250px\" >\n\t<AlternativeContentTemplate></AlternativeContentTemplate>\n\t</{0}:SWFControl>")
     ]
     [Designer(typeof(SWFControlDesigner))]
     public partial class SWFControl : CompositeControl
@@ -90,6 +90,11 @@ namespace nkSWFControl
                     break;
             }
             return;
+        }
+
+        internal string ResolvedMovie 
+        { 
+            get {return base.ResolveClientUrl(Movie);}
         }
 
         protected override void CreateChildControls()

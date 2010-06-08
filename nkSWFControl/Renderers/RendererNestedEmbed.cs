@@ -38,7 +38,10 @@ namespace nkSWFControl.Renderers
 
         public override void CreateChildControls()
         {
-            CreateParam("movie", ctrl.Movie);
+            string movieUrl = ctrl.ResolveClientUrl(ctrl.ResolvedMovie);
+
+
+            CreateParam("movie", movieUrl);
             CreateParam("wmode", ctrl.WindowMode.ToString());
 
             CreateFlashvars(ctrl);
@@ -48,7 +51,7 @@ namespace nkSWFControl.Renderers
             embed.Attributes.Add("pluginspage", "http://www.macromedia.com/go/getflashplayer"); 
             embed.Attributes.Add("width", ctrl.Width.Value.ToString());
             embed.Attributes.Add("height", ctrl.Height.Value.ToString());
-            embed.Attributes.Add("src",   ctrl.Movie);
+            embed.Attributes.Add("src", ctrl.ResolvedMovie);
             embed.Attributes.Add("wmode", ctrl.WindowMode.ToString());
             //embed.Attributes.Add("quality", "high");
             //embed.Attributes.Add("name", "movie" );
