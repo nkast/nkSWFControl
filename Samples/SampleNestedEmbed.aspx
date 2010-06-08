@@ -11,10 +11,13 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
-        <cc1:SWFControl ID="SWFControl1" runat="server" Height="292px" 
-            PublishingMethod="NestedEmbed" Width="609px" 
-            SitePath="C:\Projects\nkSWFControl\nkSWFControl\Samples" >
+       
+        <cc1:SWFControl ID="SWFControl1" 
+            runat="server" 
+            PublishingMethod="NestedEmbed" 
+            Height="60px" 
+            Width="468px" 
+            Movie="default.swf" SitePath="C:\Projects\nkSWFControl\nkSWFControl\Samples" >
             <AlternativeContentTemplate>
             <div>
 				<h1>Alternative content</h1>
