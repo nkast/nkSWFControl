@@ -13,8 +13,7 @@
     <div>
     
         <cc1:SWFControl ID="SWFControl1" runat="server" 
-            PublishingMethod="Gordon"  
-            SitePath="C:\Projects\nkSWFControl\nkSWFControl\Samples" 
+            PublishingMethod="Gordon"              
             Movie="trip.swf"
             Width="162px" Height="162px"
         >

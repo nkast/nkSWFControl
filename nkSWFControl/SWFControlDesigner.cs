@@ -51,7 +51,7 @@ namespace nkSWFControl
                 {
                     _items = new DesignerActionItemCollection();
                     _items.Add(new DesignerActionMethodItem(this, "Fullsize", "Full size", true));
-                    _items.Add(new DesignerActionMethodItem(this, "Autosize", "Auto size", true));
+                    _items.Add(new DesignerActionMethodItem(this, "Originalsize", "Original size", true));
                     _items.Add(new DesignerActionMethodItem(this, "SetSize468x60", "468x60", true));
                     _items.Add(new DesignerActionMethodItem(this, "SetSize300x250", "300x250", true));
                     _items.Add(new DesignerActionMethodItem(this, "SetSize120x600", "120x600", true));
@@ -59,7 +59,7 @@ namespace nkSWFControl
                     _items.Add(new DesignerActionMethodItem(this, "SetSize1024x768", "1024x768", true));
                 }
                 return _items;
-            } 
+            }
             
             // ActionList command to change the size
             private void SetSize468x60() {SetSize(468,60);}
@@ -77,8 +77,7 @@ namespace nkSWFControl
                 _parent.Tag.SetAttribute("Width", "100%");
                 _parent.Tag.SetAttribute("Height", "100%");
                 _parent.UpdateDesignTimeHtml();                
-            }
-           
+            }           
 
             private void SetSize(int w, int h)
             {
@@ -90,27 +89,30 @@ namespace nkSWFControl
                 _parent.UpdateDesignTimeHtml();
             }
 
-
-            private void Autosize()
+            private void Originalsize()
             {
                 // Get a reference to the parent designer's associated control
                 SWFControl ctrl = (SWFControl)_parent.Component;
 
                 string filename = ctrl.ResolvedMovie;
                 string path = ctrl.SitePath;
-                if(path==String.Empty)
+                string fullpath;
+
+                if (path == String.Empty)
                 {
-                    //this seems to return the solution path.
-                    //string fpath = Path.GetFullPath("~/");
-                    //path = fpath.Split('~')[0];
-                    //ctrl.SitePath = path;
-                    return;
+                    //try to get absolute path on disk
+                    IWebApplication webApplication = (IWebApplication)ctrl.Site.GetService(typeof(IWebApplication));
+                    if (webApplication == null) return;
+                    //string projectPath = webApplication.RootProjectItem.PhysicalPath;
+                    fullpath = webApplication.GetProjectItemFromUrl(ctrl.Movie).PhysicalPath;                             
                 }
+                else
+                {
+                    fullpath = Path.Combine(path, filename);
+                }                
                 
-                
-                string fullpath = Path.Combine(path, filename);
                 if (!File.Exists(fullpath)) return;
-                SWFFile.SWF.SWFReader swfReader = new SWFReader(fullpath);                
+                SWFFile.SWF.SWFReader swfReader = new SWFReader(fullpath);
                 SetSize(swfReader.Header.FrameWidth, swfReader.Header.FrameHeight);
 
                 return;
