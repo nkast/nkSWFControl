@@ -15,9 +15,11 @@
         <cc1:SWFControl ID="SWFControl1" 
             runat="server" 
             PublishingMethod="NestedEmbed" 
-            Height="60px" 
-            Width="468px" 
-            Movie="default.swf" SitePath="C:\Projects\nkSWFControl\nkSWFControl\Samples" >
+            Height="320px" 
+            Width="540px" 
+            Movie="default.swf"
+            
+            >
             <AlternativeContentTemplate>
             <div>
 				<h1>Alternative content</h1>

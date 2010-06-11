@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nkSWFControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\nkSWFControl\bin\Debug\nkSWFControl.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -130,6 +126,12 @@
     <Compile Include="SampleSWFObjectStaticFlashvars.aspx.designer.cs">
       <DependentUpon>SampleSWFObjectStaticFlashvars.aspx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\nkSWFControl\nkSWFControl.csproj">
+      <Project>{9AAB4FA3-2859-4C1B-905A-DC87BCCC62C2}</Project>
+      <Name>nkSWFControl</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
