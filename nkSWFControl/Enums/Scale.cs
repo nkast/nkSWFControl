@@ -28,6 +28,7 @@ namespace nkSWFControl.Enums
     {
         Showall,
         Noborder,
-        Exactfit        
+        Exactfit,
+        noscale        
     }
 }
