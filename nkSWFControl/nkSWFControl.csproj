@@ -49,10 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Quality.cs" />
+    <Compile Include="Enums\Scale.cs" />
+    <Compile Include="Enums\WindowMode.cs" />
     <Compile Include="SWFControlDesigner.cs" />
     <Compile Include="SWFFile\SWF\SWFHeader.cs" />
     <Compile Include="SWFFile\SWF\SWFReader.cs" />
-    <Compile Include="WindowMode.cs" />
     <Compile Include="Flashvar.cs" />
     <Compile Include="FlashvarsCollectionEditor.cs" />
     <Compile Include="Renderers\IRenderer.cs" />

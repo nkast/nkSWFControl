@@ -28,6 +28,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.Collections;
 using System.Drawing.Design;
+using nkSWFControl.Enums;
 
 namespace nkSWFControl
 {
@@ -112,7 +113,7 @@ namespace nkSWFControl
 
         [Bindable(true)]
         [Category("Behavior")]
-        [DefaultValue(PublishingMethod.NestedObject)]
+        [DefaultValue(WindowMode.Window)]
         [Localizable(true)]
         [Description("Publishing Method")]
         public WindowMode WindowMode
@@ -128,7 +129,45 @@ namespace nkSWFControl
                 ViewState["WindowMode"] = value;
             }
         }
-      
+
+        [Bindable(true)]
+        [Category("Behavior")]
+        [DefaultValue(Quality.high)]
+        [Localizable(true)]
+        [Description("Quality Level")]
+        public Quality Quality
+        {
+            get
+            {
+                if (ViewState["Quality"] == null)
+                    return Quality.high;
+                return (Quality)ViewState["Quality"];
+            }
+            set
+            {
+                ViewState["Quality"] = value;
+            }
+        }
+
+        [Bindable(true)]
+        [Category("Behavior")]
+        [DefaultValue(Scale.Showall)]
+        [Localizable(true)]
+        [Description("Scale method")]
+        public Scale Scale
+        {
+            get
+            {
+                if (ViewState["Scale"] == null)
+                    return Scale.Showall;
+                return (Scale)ViewState["Scale"];
+            }
+            set
+            {
+                ViewState["Scale"] = value;
+            }
+        }
+
        [Browsable(false)]
        [PersistenceMode(PersistenceMode.InnerProperty)]
        [DefaultValue(typeof(ITemplate), null)]
