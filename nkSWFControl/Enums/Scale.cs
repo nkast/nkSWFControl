@@ -22,14 +22,12 @@ THE SOFTWARE.
 
 using System;
 
-namespace nkSWFControl
+namespace nkSWFControl.Enums
 {
-    public enum WindowMode 
+    public enum Scale 
     {
-        Window,
-        Transparent,
-        Opaque,
-        Direct,
-        GPU
+        Showall,
+        Noborder,
+        Exactfit        
     }
 }
