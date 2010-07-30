@@ -26,9 +26,9 @@ namespace nkSWFControl.Enums
 {
     public enum Scale 
     {
-        Showall,
-        Noborder,
-        Exactfit,
-        noscale        
+        ShowAll,
+        NoBorder,
+        ExactFit,
+        NoScale
     }
 }
