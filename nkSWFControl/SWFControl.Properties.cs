@@ -151,7 +151,7 @@ namespace nkSWFControl
 
         [Bindable(true)]
         [Category("Behavior")]
-        [DefaultValue(Scale.Showall)]
+        [DefaultValue(Scale.ShowAll)]
         [Localizable(true)]
         [Description("Scale method")]
         public Scale Scale
@@ -159,7 +159,7 @@ namespace nkSWFControl
             get
             {
                 if (ViewState["Scale"] == null)
-                    return Scale.Showall;
+                    return Scale.ShowAll;
                 return (Scale)ViewState["Scale"];
             }
             set
