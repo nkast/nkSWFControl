@@ -70,7 +70,7 @@ namespace nkSWFControl.Renderers
             base.AddAttributes(writer); // base will add ID
             writer.AddAttribute("classid", "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000");
             writer.AddAttribute("width", ctrl.Width.Value.ToString());
-            writer.AddAttribute("height", ctrl.Width.Value.ToString());
+            writer.AddAttribute("height", ctrl.Height.Value.ToString());
         }
 
         #endregion

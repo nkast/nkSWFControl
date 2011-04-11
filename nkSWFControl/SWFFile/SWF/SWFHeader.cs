@@ -24,7 +24,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using DevelopDotNet.Compression;
+//using DevelopDotNet.Compression;
+using System.IO.Compression;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SWFFile.SWF
@@ -64,8 +65,8 @@ namespace SWFFile.SWF
             {
                 //decompress
                 MemoryStream mstream = new MemoryStream();
-                //System.IO.Compression.GZipStream zstream = new System.IO.Compression.GZipStream(stream, System.IO.Compression.CompressionMode.Decompress);
-                ZStream zstream = new ZStream(stream,CompressionMode.Decompress);
+                System.IO.Compression.GZipStream zstream = new System.IO.Compression.GZipStream(stream, System.IO.Compression.CompressionMode.Decompress);
+                //ZStream zstream = new ZStream(stream,CompressionMode.Decompress);
                 
                 int count;
                 byte[] buff = new byte[256];
